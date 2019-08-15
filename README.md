@@ -16,7 +16,7 @@ Esta calculadora ofrece las siguientes operaciones:
 * Fase
 
 ## Pruebas
-Se implemento JUnit
+Se implemento JUnit y Maven
 
 ## Lenguaje de Programacion
 Esta calculadora esta hecha en el lenguaje de programacion Java.

@@ -43,6 +43,31 @@ Debes tener maven para compilar este proyecto. Vaya a https://maven.apache.org/ 
 - Ejemplo para el uso de la suma de 2 numeros complejos:
   ```
   CalcuComple.suma(numeroComplejo1, numeroComplejo2);
+- Ejemplo para el uso de la resta de 2 numeros complejos:
+  ```
+  CalcuComple.resta(numeroComplejo1, numeroComplejo2);
+- Ejemplo para el uso de la multiplicacion de 2 numeros complejos:
+  ```
+  CalcuComple.multiplicacion(numeroComplejo1, numeroComplejo2);
+- Ejemplo para el uso de la division de 2 numeros complejos:
+  ```
+  CalcuComple.division(numeroComplejo1, numeroComplejo2);
+- Ejemplo para el uso del modulo de un numero complejo:
+  ```
+  numeroComplejo.modulo();
+- Ejemplo para el uso del conjugado de un numero complejo:
+  ```
+  numeroComplejo.conjugado();
+- Ejemplo para el uso de la fase de un numero complejo:
+  ```
+  numeroComplejo.getFase();
+- Ejemplo para el uso de conversion de coordenadas cartesianas a polares de un numero complejo:
+  ```
+  CalcuComple.cartesianaAPolar(numeroComplejo1);
+- Ejemplo para el uso de conversion de coordenadas polares a cartesianas de un numero complejo:
+  ```
+  CalcuComple.polarACartesiana(Math.sqrt(2), Math.PI / 4.0);
+  
 
 ## Correr las Pruebas
 Para ejecutar las pruebas, puede abrir el cmd en la carpeta de este proyecto y ejecutar.

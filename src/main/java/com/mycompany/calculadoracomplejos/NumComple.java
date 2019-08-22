@@ -45,7 +45,15 @@ public class NumComple {
         NumComple c = (NumComple) o;
         return Double.compare(round(pReal), round(c.getpReal())) == 0 && Double.compare(round(pImg), round(c.getpImg())) == 0;
     }
-
+    
+    @Override
+    public int hashCode(){
+        int hash=3;
+        hash = 71 * hash + (int) (Double.doubleToLongBits(this.pReal) ^ (Double.doubleToLongBits(this.pReal) >>> 32));
+        hash = 71 * hash + (int) (Double.doubleToLongBits(this.pImg) ^ (Double.doubleToLongBits(this.pImg) >>> 32));
+        return hash;
+    }
+    
     private double round(double d) {
         String s = Double.toString(d);
         if (s.length() > 7) {

@@ -67,7 +67,7 @@ Debes tener maven para compilar este proyecto. Vaya a https://maven.apache.org/ 
 - Ejemplo para el uso de conversion de coordenadas polares a cartesianas de un numero complejo:
   ```
   CalcuComple.polarACartesiana(Math.sqrt(2), Math.PI / 4.0);
-  
+  ```
 
 ## Correr las Pruebas
 Para ejecutar las pruebas, puede abrir el cmd en la carpeta de este proyecto y ejecutar.

@@ -1,6 +1,6 @@
 import com.mycompany.calculadoracomplejos.*;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -14,7 +14,7 @@ public class CalcuCompleTest {
         NumComple c2 = new NumComple(1, 4);
         NumComple result = CalcuComple.suma(c1, c2);
         NumComple expected = new NumComple(4, 3);
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());
+        assertEquals(expected, result);
     }
     
     @Test
@@ -23,7 +23,7 @@ public class CalcuCompleTest {
         NumComple c2 = new NumComple(3, 1);
         NumComple result = CalcuComple.resta(c1, c2);
         NumComple expected = new NumComple(2, 6);
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());
+        assertEquals(expected, result);
     }
     
     @Test
@@ -32,7 +32,7 @@ public class CalcuCompleTest {
         NumComple c2 = new NumComple(1, 2);
         NumComple result = CalcuComple.multiplicacion(c1, c2);
         NumComple expected = new NumComple(7, 4);
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());
+        assertEquals(expected, result);
     }
     
     @Test
@@ -41,7 +41,7 @@ public class CalcuCompleTest {
         NumComple c2 = new NumComple(1, 2);
         NumComple result = CalcuComple.division(c1, c2);
         NumComple expected = new NumComple(0, 1);
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());;
+        assertEquals(expected, result);
     }
     
     @Test
@@ -57,11 +57,11 @@ public class CalcuCompleTest {
         NumComple c1 = new NumComple(2, 5);
         NumComple expected = new NumComple(2, -5);
         NumComple result = c1.conjugado();
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());
+        assertEquals(expected, result);
     }
     
     @Test
-    public void getPhaseTest() {
+    public void getFaseTest() {
         NumComple c1 = new NumComple(1, 1);
         double expected = Math.PI / 4;
         double result = c1.getFase();
@@ -80,6 +80,6 @@ public class CalcuCompleTest {
     public void polarToCartesianTest() {
         NumComple result = CalcuComple.polarACartesiana(Math.sqrt(2), Math.PI / 4.0);
         NumComple expected = new NumComple(1, 1);
-        assertEquals(expected.getComplexNumber(), result.getComplexNumber());
+        assertEquals(expected, result);
     }
 }

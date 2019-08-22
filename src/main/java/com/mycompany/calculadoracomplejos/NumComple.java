@@ -1,7 +1,5 @@
 package com.mycompany.calculadoracomplejos;
 
-import java.text.DecimalFormat;
-
 /**
  *
  * @author Sergio
@@ -22,15 +20,6 @@ public class NumComple {
 
     public double getpImg() {
         return pImg;
-    }
-
-    public String getComplexNumber() {
-        DecimalFormat df = new DecimalFormat("#.##");
-        if (pImg < 0) {
-            return df.format(pReal) + " - " + df.format(pImg * -1) + "i";
-        } else {
-            return df.format(pReal) + " + " + df.format(pImg) + "i";
-        }
     }
 
     public double modulo() {

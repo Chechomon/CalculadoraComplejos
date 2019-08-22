@@ -35,7 +35,7 @@ Para usar esta calculadora, clone el repositorio o descargue el archivo zip del 
 Debes tener maven para compilar este proyecto. Vaya a https://maven.apache.org/ y siga las instrucciones para instalarlo.
 
 ## Usando la Calculadora
-- Abir un cmd en el folder de esta calculadora
+- Abrir un cmd en el folder de esta calculadora
 - Compilarlo en el cmd:
   ```
   mvn package

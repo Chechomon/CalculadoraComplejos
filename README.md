@@ -31,7 +31,7 @@ Esta calculadora ofrece las siguientes operaciones:
 ## Empezando 
 Para usar esta calculadora, clone el repositorio o descargue el archivo zip del repositorio.
 
-## Prerequisitos
+## Prerrequisitos
 Debes tener maven para compilar este proyecto. Vaya a https://maven.apache.org/ y siga las instrucciones para instalarlo.
 
 ## Usando la Calculadora

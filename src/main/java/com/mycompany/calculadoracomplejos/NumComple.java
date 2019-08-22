@@ -44,5 +44,24 @@ public class NumComple {
     public double getFase() {
         return Math.atan2(pImg, pReal);
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        if (!(o instanceof NumComple)) {
+            return false;
+        }
+        NumComple c = (NumComple) o;
+        return Double.compare(round(pReal), round(c.getpReal())) == 0 && Double.compare(round(pImg), round(c.getpImg())) == 0;
+    }
 
+    private double round(double d) {
+        String s = Double.toString(d);
+        if (s.length() > 7) {
+            s = s.substring(0, 7);
+        }
+        return Double.valueOf(s);
+    }
 }

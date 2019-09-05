@@ -71,7 +71,7 @@ public class CalcuCompleTest {
     @Test
     public void cartesianToPolarTest() {
         NumComple c1 = new NumComple(1, 1);
-        String expected = "(1.41, 0.79)";
+        String expected = "(1,41, 0,79)";
         String result = CalcuComple.cartesianaAPolar(c1);
         assertEquals(expected, result);
     }

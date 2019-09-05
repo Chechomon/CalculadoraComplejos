@@ -124,7 +124,7 @@ Debes tener maven para compilar este proyecto. Vaya a https://maven.apache.org/ 
   ```
   CalcuComple.isMatrizHermitiana(matrizCompleja);
   ```
-- Ejemplo para el uso del productor tensor en una matriz compleja:
+- Ejemplo para el uso del productor tensor en una matriz:
   ```
   CalcuComple.productoTensor(matrizCompleja1, matrizCompleja2);
   ```

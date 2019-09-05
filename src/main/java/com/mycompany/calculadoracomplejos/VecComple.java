@@ -16,7 +16,7 @@ public class VecComple {
         return vector;
     }
 
-    public VecComple inverse() {
+    public VecComple inverso() {
         VecComple r = new VecComple(new NumComple[vector.length]);
         for (int i = 0; i < vector.length; i++) {
             r.getVector()[i] = CalcuComple.multiplicacion(vector[i], new NumComple(-1, 0));
@@ -24,7 +24,7 @@ public class VecComple {
         return r;
     }
 
-    public VecComple conjugate() {
+    public VecComple conjugado() {
         VecComple r = new VecComple(new NumComple[vector.length]);
         for (int i = 0; i < vector.length; i++) {
             r.getVector()[i] = vector[i].conjugado();
@@ -54,5 +54,12 @@ public class VecComple {
             }
         }
         return b;
+    }
+    
+    @Override
+    public int hashCode(){
+        int hash=3;
+        hash = 57 * hash + (int) (Double.doubleToLongBits(this.vector.hashCode()) ^ (Double.doubleToLongBits(this.vector.hashCode()) >>> 32));
+        return hash;
     }
 }

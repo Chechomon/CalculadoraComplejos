@@ -222,7 +222,7 @@ public class CalcuComple {
         if (m.getMatrix().length != m.getMatrix()[0].length) {
             throw new Exception("La matriz no es cuadrada");
         } else {
-            return multiplicacionMatrices(m, m.adjoint()).equals(multiplicacionMatrices(m.adjoint(), m));
+            return multiplicacionMatrices(m, m.adjunta()).equals(multiplicacionMatrices(m.adjunta(), m));
         }
     }
     
@@ -230,11 +230,11 @@ public class CalcuComple {
         if (m.getMatrix().length != m.getMatrix()[0].length) {
             throw new Exception("La matriz no es cuadrada");
         } else {
-            return m.equals(m.adjoint());
+            return m.equals(m.adjunta());
         }
     }
     
-    public static MatComple tensorProduct(MatComple m1, MatComple m2) {
+    public static MatComple productoTensor(MatComple m1, MatComple m2) {
         MatComple r = creacionMatriz(m1.getMatrix().length * m2.getMatrix().length, m1.getMatrix()[0].length * m2.getMatrix()[0].length);
         MatComple sp;
         int m = 0;

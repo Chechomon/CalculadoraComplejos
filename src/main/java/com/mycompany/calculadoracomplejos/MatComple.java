@@ -36,7 +36,7 @@ public class MatComple {
         return r;
     }
 
-    public MatComple transpose() throws Exception {
+    public MatComple transpuesta() throws Exception {
         if (matrix.length != matrix[0].length) {
             throw new Exception("The matrix is not square");
         } else {
@@ -55,7 +55,7 @@ public class MatComple {
         }
     }
 
-    public MatComple conjugate() throws Exception {
+    public MatComple conjugada() throws Exception {
         MatComple r = null;
         try {
             r = new MatComple(new NumComple[matrix.length][matrix.length]);
@@ -70,7 +70,7 @@ public class MatComple {
         return r;
     }
 
-    public MatComple adjoint() throws Exception {
+    public MatComple adjunta() throws Exception {
         if (matrix.length != matrix[0].length) {
             throw new Exception("The matrix is not square");
         } else {
@@ -80,8 +80,8 @@ public class MatComple {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            MatComple t = this.transpose();
-            t = t.conjugate();
+            MatComple t = this.transpuesta();
+            t = t.conjugada();
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[0].length; j++) {
                     r.getMatrix()[i][j] = t.getMatrix()[i][j];
@@ -115,5 +115,12 @@ public class MatComple {
             }
         }
         return b;
+    }
+    
+    @Override
+    public int hashCode(){
+        int hash=3;
+        hash = 57 * hash + (int) (Double.doubleToLongBits(this.matrix.hashCode()) ^ (Double.doubleToLongBits(this.matrix.hashCode()) >>> 32));
+        return hash;
     }
 }

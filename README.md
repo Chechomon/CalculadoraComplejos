@@ -12,21 +12,21 @@ Esta calculadora ofrece las siguientes operaciones:
 * Conjugado
 * Conversion entre representaciones polar y cartesiano
 * Fase
-* Adición de vectores complejos.
-* Inversa de vectores complejos.
-* Multiplicación escalar de vectores complejos.
-* Adición de matrices complejos.
-* Inversa de matrices complejos.
-* Multiplicación escalar de matrices complejas.
+* Adición de vectores complejos
+* Inversa de vectores complejos
+* Multiplicación escalar de vectores complejos
+* Adición de matrices complejos
+* Inversa de matrices complejos
+* Multiplicación escalar de matrices complejas
 * Matriz transpuesta
 * Matriz conjugada
 * Matriz adjunta
-* Función para calcular la "acción" de una matriz sobre un vector.
+* Función para calcular la "acción" de una matriz sobre un vector
 * Norma de matrices
 * Distancia entrematrices
 * Revisar si es unitaria
 * Revisar si es Hermitian
-* Producto tensor.
+* Producto tensor
 
 ## Empezando 
 Para usar esta calculadora, clone el repositorio o descargue el archivo zip del repositorio.

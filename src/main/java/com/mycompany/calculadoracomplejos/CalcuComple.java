@@ -1,6 +1,8 @@
 package com.mycompany.calculadoracomplejos;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -259,4 +261,53 @@ public class CalcuComple {
         return r;
     }
     
+    public static NumComple productInterno(VecComple v1, VecComple v2) throws Exception {
+        if (v1.getVector().length != v2.getVector().length) {
+            throw new Exception("The length of the 2 vectors is different");
+        } else {
+            NumComple r = new NumComple(0, 0);
+            for (int i = 0; i < v1.getVector().length; i++) {
+                r = suma(r, multiplicacion(v1.conjugado().getVector()[i], v2.getVector()[i]));
+            }
+            return r;
+        }
+    }
+    
+    public static VecComple marblesExperiment(MatComple A, VecComple X, int t) throws Exception {
+        VecComple r = X;
+        for (int i = 0; i < t; i++) {
+            r = accionMatrizVector(A, r);
+        }
+        return r;
+    }
+
+    public static ArrayList<Object> multiSlitExperiment(int slits, int targets, Map p) throws Exception {
+        MatComple A = creacionMatriz(slits + targets + 1, slits + targets + 1);
+        for (int i = 0; i < slits + targets + 1; i++) {
+            for (int j = 0; j < slits + targets + 1; j++) {
+                if (p.containsKey(Integer.toString(i) + " " + Integer.toString(j))) {
+                    A.getMatrix()[j][i] = (NumComple) p.get(Integer.toString(i) + " " + Integer.toString(j));
+                } else {
+                    A.getMatrix()[j][i] = new NumComple(0, 0);
+                }
+            }
+        }
+        for (int i = 0; i < slits + 1; i++) {
+            A.getMatrix()[i][i] = new NumComple(0, 0);
+        }
+        for (int i = slits + 1; i < slits + targets + 1; i++) {
+            A.getMatrix()[i][i] = new NumComple(1, 0);
+        }
+        VecComple X = new VecComple(new NumComple[slits + targets + 1]);
+        X.getVector()[0] = new NumComple(1, 0);
+        for (int i = 1; i < X.getVector().length; i++) {
+            X.getVector()[i] = new NumComple(0, 0);
+        }
+        ArrayList<Object> r = new ArrayList<>();
+        r.add(multiplicacionMatrices(A, A));
+        r.add(accionMatrizVector(multiplicacionMatrices(A, A), X));
+        return r;
+    }
+
+   
 }

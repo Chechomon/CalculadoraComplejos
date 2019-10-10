@@ -159,6 +159,7 @@ public class SimuCuanticoTest {
         expectedVector.getVector()[7] = new NumComple(1.0/Math.sqrt(12), -1.0/Math.sqrt(12));
         VecComple actualVector = (VecComple) SimuCuantico.programmingDrill322Y332(slits, targets, p).get(1);
         Assert.assertEquals(expectedMatrix, actualMatrix);
+        Assert.assertEquals(expectedVector, actualVector);
     }
 
     @Test

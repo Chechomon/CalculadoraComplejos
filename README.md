@@ -1,4 +1,4 @@
-# Operaciones con Numeros Complejos y Sistemas Cuántico
+# Operaciones con Numeros Complejos y Sistemas Cuánticos
 Aqui se encuentra una calculadora para operar numeros complejos.
 Se tiene un main para hacer la entrada desde teclado y unos tests para validar que todas las funcionalidades esten correctas.
 

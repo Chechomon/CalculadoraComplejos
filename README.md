@@ -27,6 +27,16 @@ Esta calculadora ofrece las siguientes operaciones:
 * Revisar si es unitaria
 * Revisar si es Hermitian
 * Producto tensor
+* Probabilidad Amplitud
+* Transicion AAmplitud
+* Valor Media
+* Varianza
+* Dinamica
+
+## Retos
+* Experimento Canicas
+* Experimento de la doble rendija
+* Experimento multiple rendija
 
 ## Empezando 
 Para usar esta calculadora, clone el repositorio o descargue el archivo zip del repositorio.

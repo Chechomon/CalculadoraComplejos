@@ -4,6 +4,7 @@ Se tiene un main para hacer la entrada desde teclado y unos tests para validar q
 
 ## Funcionalidades
 Esta calculadora ofrece las siguientes operaciones:
+# Números Complejos
 * Suma
 * Resta
 * Multiplicacion
@@ -12,6 +13,7 @@ Esta calculadora ofrece las siguientes operaciones:
 * Conjugado
 * Conversion entre representaciones polar y cartesiano
 * Fase
+# Matrices y Vectores
 * Adición de vectores complejos
 * Inversa de vectores complejos
 * Multiplicación escalar de vectores complejos
@@ -28,12 +30,11 @@ Esta calculadora ofrece las siguientes operaciones:
 * Revisar si es Hermitian
 * Producto tensor
 * Probabilidad Amplitud
-* Transicion AAmplitud
+* Transicion Amplitud
 * Valor Media
 * Varianza
 * Dinamica
-
-## Retos
+# Retos
 * Experimento Canicas
 * Experimento de la doble rendija
 * Experimento multiple rendija

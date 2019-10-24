@@ -9,7 +9,7 @@ import java.util.Map;
  */
 public class SimuCuantico {
     
-    private static VecComple accionMatrizSobreVector(MatComple matriz, VecComple vector){
+    private static VecComple accionMatrizVector(MatComple matriz, VecComple vector){
         VecComple r = new VecComple(new NumComple[vector.getVector().length]);
         NumComple s = new NumComple(0,0);
         for (int i = 0; i < vector.getVector().length; i++) {
@@ -22,7 +22,7 @@ public class SimuCuantico {
         return r;
     }
 
-    private static MatComple crearMatriz(int i, int j) {
+    private static MatComple creacionMatriz(int i, int j) {
         MatComple r =null;
         try {
             r = new MatComple(new NumComple[i][j]);
@@ -32,8 +32,8 @@ public class SimuCuantico {
         return r;
     }
     
-    private static MatComple matrizMultiplicacion(MatComple m1, MatComple m2) {
-        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
+    private static MatComple multiplicacionMatrices(MatComple m1, MatComple m2) {
+        MatComple r = creacionMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
         NumComple s = new NumComple(0,0);
         for (int m = 0; m < m1.getMatrix().length; m++) {
             for (int n = 0; n < m1.getMatrix()[0].length; n++) {
@@ -48,7 +48,7 @@ public class SimuCuantico {
     }
 
     public static MatComple adicionDeMatrices(MatComple m1, MatComple m2) {
-        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
+        MatComple r = creacionMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
         for (int i = 0; i < m1.getMatrix().length; i++) {
             for (int j = 0 ; j < m1.getMatrix()[0].length; j++) {
                 r.getMatrix()[i][j] = CalcuComple.suma(m1.getMatrix()[i][j], m2.getMatrix()[i][j]);
@@ -57,7 +57,7 @@ public class SimuCuantico {
         return r;
     }
     
-    public double[] programmingDrill311Y321(double[][]matriz,double[]estadoInicial,int clicks){
+    public double[] drill311Y321(double[][]matriz,double[]estadoInicial,int clicks){
         double [] respuesta = new double[estadoInicial.length];
         while(clicks!=0) {
             for (int i = 0; i < estadoInicial.length; i++) {
@@ -73,7 +73,7 @@ public class SimuCuantico {
         return respuesta;
     }
     
-    public NumComple[] programmingDrill331(NumComple[][]matriz,NumComple[]estadoInicial,int clicks){
+    public NumComple[] drill331(NumComple[][]matriz,NumComple[]estadoInicial,int clicks){
         NumComple[] respuesta = new NumComple[estadoInicial.length];
         while (clicks!=0){
             for (int i = 0; i < estadoInicial.length ; i++) {
@@ -90,8 +90,8 @@ public class SimuCuantico {
         return respuesta;
     }
     
-    public static ArrayList<Object> programmingDrill322Y332(int slits, int targets, Map p){
-        MatComple matriz = crearMatriz(slits+targets+1, slits+targets+1);
+    public static ArrayList<Object> drill322Y332(int slits, int targets, Map p){
+        MatComple matriz = creacionMatriz(slits+targets+1, slits+targets+1);
         for(int i = 0; i < slits+targets+1; i++) {
             for(int j = 0; j < slits+targets+1; j++) {
                 if(p.containsKey(Integer.toString(i) + " " + Integer.toString(j))) {
@@ -113,8 +113,8 @@ public class SimuCuantico {
             vector.getVector()[i] = new NumComple(0,0);
         }
         ArrayList<Object> r = new ArrayList<Object>();
-        r.add(matrizMultiplicacion(matriz,matriz));
-        r.add(accionMatrizSobreVector(matrizMultiplicacion(matriz,matriz), vector));
+        r.add(multiplicacionMatrices(matriz,matriz));
+        r.add(accionMatrizVector(multiplicacionMatrices(matriz,matriz), vector));
         return r;
     }
 
@@ -128,7 +128,7 @@ public class SimuCuantico {
         return prob;
     }
 
-    public static NumComple transicion(VecComple estadoInicial, VecComple estadoFinal){
+    public static NumComple transicionAmp(VecComple estadoInicial, VecComple estadoFinal){
         VecComple bra = estadoFinal.conjugado();
         NumComple ans = productoInterno(estadoFinal, estadoInicial);
         return ans;
@@ -143,7 +143,7 @@ public class SimuCuantico {
     }
 
     public static NumComple valorMedia(VecComple ket, MatComple observable){
-        VecComple omegaKet = accionMatrizSobreVector(observable, ket);
+        VecComple omegaKet = accionMatrizVector(observable, ket);
         NumComple ans = productoInterno(omegaKet, ket);
         return ans;
     }
@@ -156,17 +156,17 @@ public class SimuCuantico {
         m.getMatrix()[1][0] = new NumComple(0, 0);
         m.getMatrix()[1][1] = mean;
         MatComple subtraction = adicionDeMatrices(observable, m.inverse());
-        MatComple temp = matrizMultiplicacion(subtraction, subtraction);
-        VecComple act = accionMatrizSobreVector(temp, ket);
+        MatComple temp = multiplicacionMatrices(subtraction, subtraction);
+        VecComple act = accionMatrizVector(temp, ket);
         NumComple ans = productoInterno(ket, act);
         return ans;
 
     }
 
     public static VecComple dinamica(MatComple[] m, VecComple estadoInicial){
-        VecComple ans = accionMatrizSobreVector(m[0], estadoInicial);
+        VecComple ans = accionMatrizVector(m[0], estadoInicial);
         for (int i = 1; i < m.length; i++) {
-            ans = accionMatrizSobreVector(m[1], ans);
+            ans = accionMatrizVector(m[1], ans);
         }
         return ans;
     }

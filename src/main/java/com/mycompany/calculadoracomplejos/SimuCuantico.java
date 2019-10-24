@@ -9,6 +9,54 @@ import java.util.Map;
  */
 public class SimuCuantico {
     
+    private static VecComple accionMatrizSobreVector(MatComple matriz, VecComple vector){
+        VecComple r = new VecComple(new NumComple[vector.getVector().length]);
+        NumComple s = new NumComple(0,0);
+        for (int i = 0; i < vector.getVector().length; i++) {
+            for (int j = 0; j < matriz.getMatrix()[0].length; j++) {
+                s = CalcuComple.suma(s, CalcuComple.multiplicacion(matriz.getMatrix()[i][j], vector.getVector()[j]));
+            }
+            r.getVector()[i] = s;
+            s = new NumComple(0,0);
+        }
+        return r;
+    }
+
+    private static MatComple crearMatriz(int i, int j) {
+        MatComple r =null;
+        try {
+            r = new MatComple(new NumComple[i][j]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return r;
+    }
+    
+    private static MatComple matrizMultiplicacion(MatComple m1, MatComple m2) {
+        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
+        NumComple s = new NumComple(0,0);
+        for (int m = 0; m < m1.getMatrix().length; m++) {
+            for (int n = 0; n < m1.getMatrix()[0].length; n++) {
+                for (int i = 0; i < m1.getMatrix().length; i++) {
+                    s = CalcuComple.suma(s, CalcuComple.multiplicacion(m1.getMatrix()[m][i], m2.getMatrix()[i][n]));
+                }
+                r.getMatrix()[m][n] = s;
+                s = new NumComple(0,0);
+            }
+        }
+        return r;
+    }
+
+    public static MatComple adicionDeMatrices(MatComple m1, MatComple m2) {
+        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
+        for (int i = 0; i < m1.getMatrix().length; i++) {
+            for (int j = 0 ; j < m1.getMatrix()[0].length; j++) {
+                r.getMatrix()[i][j] = CalcuComple.suma(m1.getMatrix()[i][j], m2.getMatrix()[i][j]);
+            }
+        }
+        return r;
+    }
+    
     public double[] programmingDrill311Y321(double[][]matriz,double[]estadoInicial,int clicks){
         double [] respuesta = new double[estadoInicial.length];
         while(clicks!=0) {
@@ -65,46 +113,8 @@ public class SimuCuantico {
             vector.getVector()[i] = new NumComple(0,0);
         }
         ArrayList<Object> r = new ArrayList<Object>();
-        r.add(mutiplicacionMatrices(matriz,matriz));
-        r.add(accionMatrizSobreVector(mutiplicacionMatrices(matriz,matriz), vector));
-        return r;
-    }
-
-    private static VecComple accionMatrizSobreVector(MatComple matriz, VecComple vector){
-        VecComple r = new VecComple(new NumComple[vector.getVector().length]);
-        NumComple s = new NumComple(0,0);
-        for (int i = 0; i < vector.getVector().length; i++) {
-            for (int j = 0; j < matriz.getMatrix()[0].length; j++) {
-                s = CalcuComple.suma(s, CalcuComple.multiplicacion(matriz.getMatrix()[i][j], vector.getVector()[j]));
-            }
-            r.getVector()[i] = s;
-            s = new NumComple(0,0);
-        }
-        return r;
-    }
-
-    private static MatComple mutiplicacionMatrices(MatComple m1, MatComple m2){
-        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
-        NumComple s = new NumComple(0,0);
-        for (int m = 0; m < m1.getMatrix().length; m++) {
-            for (int n = 0; n < m1.getMatrix()[0].length; n++) {
-                for (int i = 0; i < m1.getMatrix().length; i++) {
-                    s = CalcuComple.suma(s, CalcuComple.multiplicacion(m1.getMatrix()[m][i], m2.getMatrix()[i][n]));
-                }
-                r.getMatrix()[m][n] = s;
-                s = new NumComple(0,0);
-            }
-        }
-        return r;
-    }
-
-    private static MatComple crearMatriz(int i, int j) {
-        MatComple r =null;
-        try {
-            r = new MatComple(new NumComple[i][j]);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        r.add(matrizMultiplicacion(matriz,matriz));
+        r.add(accionMatrizSobreVector(matrizMultiplicacion(matriz,matriz), vector));
         return r;
     }
 
@@ -151,31 +161,6 @@ public class SimuCuantico {
         NumComple ans = productoInterno(ket, act);
         return ans;
 
-    }
-
-    private static MatComple matrizMultiplicacion(MatComple m1, MatComple m2) {
-        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
-        NumComple s = new NumComple(0,0);
-        for (int m = 0; m < m1.getMatrix().length; m++) {
-            for (int n = 0; n < m1.getMatrix()[0].length; n++) {
-                for (int i = 0; i < m1.getMatrix().length; i++) {
-                    s = CalcuComple.suma(s, CalcuComple.multiplicacion(m1.getMatrix()[m][i], m2.getMatrix()[i][n]));
-                }
-                r.getMatrix()[m][n] = s;
-                s = new NumComple(0,0);
-            }
-        }
-        return r;
-    }
-
-    public static MatComple adicionDeMatrices(MatComple m1, MatComple m2) {
-        MatComple r = crearMatriz(m1.getMatrix().length, m1.getMatrix()[0].length);
-        for (int i = 0; i < m1.getMatrix().length; i++) {
-            for (int j = 0 ; j < m1.getMatrix()[0].length; j++) {
-                r.getMatrix()[i][j] = CalcuComple.suma(m1.getMatrix()[i][j], m2.getMatrix()[i][j]);
-            }
-        }
-        return r;
     }
 
     public static VecComple dinamica(MatComple[] m, VecComple estadoInicial){

@@ -218,5 +218,42 @@ public class SimuCuanticoTest {
         assertEquals(expected, actual);
     }
     
+    @Test
+    public void dinamicoTest() throws Exception {
+        VecComple initialState = new VecComple(new NumComple[2]);
+        initialState.getVector()[0] = new NumComple(1, 0);
+        initialState.getVector()[1] = new NumComple(0, 0);
+        MatComple[] matrixArray = new MatComple[4];
+        MatComple m1 = new MatComple(new NumComple[2][2]);
+        m1.getMatrix()[0][0] = new NumComple(0, 0);
+        m1.getMatrix()[0][1] = new NumComple(1 / Math.sqrt(2), 0);
+        m1.getMatrix()[1][0] = new NumComple(1 / Math.sqrt(2), 0);
+        m1.getMatrix()[1][1] = new NumComple(0, 0);
+        MatComple m2 = new MatComple(new NumComple[2][2]);
+        m2.getMatrix()[0][0] = new NumComple(0, 1 / Math.sqrt(2));
+        m2.getMatrix()[0][1] = new NumComple(0, 0);
+        m2.getMatrix()[1][0] = new NumComple(0, 0);
+        m2.getMatrix()[1][1] = new NumComple(1 / Math.sqrt(2), 0);
+        MatComple m3 = new MatComple(new NumComple[2][2]);
+        m3.getMatrix()[0][0] = new NumComple(1 / Math.sqrt(2), 0);
+        m3.getMatrix()[0][1] = new NumComple(0, 0);
+        m3.getMatrix()[1][0] = new NumComple(0, 0);
+        m3.getMatrix()[1][1] = new NumComple(0, 1 / Math.sqrt(2));
+        MatComple m4 = new MatComple(new NumComple[2][2]);
+        m4.getMatrix()[0][0] = new NumComple(0, 0);
+        m4.getMatrix()[0][1] = new NumComple(1 / Math.sqrt(2), 0);
+        m4.getMatrix()[1][0] = new NumComple(-1 / Math.sqrt(2), 0);
+        m4.getMatrix()[1][1] = new NumComple(0, 0);
+        matrixArray[0] = m1;
+        matrixArray[1] = m2;
+        matrixArray[2] = m3;
+        matrixArray[3] = m4;
+        VecComple expected = new VecComple(new NumComple[2]);
+        expected.getVector()[0] = new NumComple(0, 0);
+        expected.getVector()[1] = new NumComple(0.24999999999999992, 0);
+        VecComple actual = SimuCuantico.dinamica(matrixArray, initialState);
+        assertEquals(expected, actual);
+    }
+    
 }
 
